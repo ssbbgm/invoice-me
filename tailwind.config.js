@@ -1,7 +1,9 @@
 module.exports = {
   content: [
-    "./src/*.html",
-    '*.{html,js}'
+    "./public/src/*.html",
+    "./views/*.handlebars",
+    "*.{html,js}"
+  
   ],
   theme: {
     extend: {},
