@@ -1,7 +1,8 @@
 module.exports = {
   content: [
-    "./public/src/*.html",
+    // "./public/src/*.html",
     "./views/*.handlebars",
+    "./views/**/*.handlebars",
     "*.{html,js}"
   
   ],
