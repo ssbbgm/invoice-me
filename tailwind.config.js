@@ -7,6 +7,9 @@ module.exports = {
   
   ],
   theme: {
+    colors: {
+      'google-red': '#de5246'
+    },
     extend: {},
   },
   plugins: [],

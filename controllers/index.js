@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render('home', { body: 'test' })
+    res.render('login', { body: 'test' })
   } catch (err) {
     res.status(500).json(err)
   }
@@ -16,7 +16,31 @@ router.get("/dashboard", async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
+
+router.get('/forgot', async (req, res) => {
+  try {
+    res.render('forgot', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/register', async (req, res) => {
+  try {
+    res.render('register', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/reset', async (req, res) => {
+  try {
+    res.render('reset', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
 
   
 module.exports = router;
