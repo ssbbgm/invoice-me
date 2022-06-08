@@ -1,0 +1,156 @@
+<div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
+      <!-- Loading screen -->
+      <div
+        x-ref="loading"
+        class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker"
+      >
+        Loading.....
+      </div>
+      <div
+        class="flex flex-col items-center justify-center min-h-screen p-4 space-y-4 antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light"
+      >
+        <!-- Brand -->
+        <a
+          href="/"
+          class="inline-block mb-6 text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
+        >
+          INVOICE ME
+        </a>
+        <main>
+          <div class="w-full max-w-sm px-4 py-6 space-y-6 bg-white rounded-md dark:bg-darker">
+            <h1 class="text-xl font-semibold text-center">Register</h1>
+            <form action="#" class="space-y-6">
+              <input
+                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+              />
+              <input
+                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+                type="email"
+                name="email"
+                placeholder="Email address"
+                required
+              />
+              <input
+                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <input
+                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+                type="password"
+                name="password_confirmation"
+                placeholder="Confirm Password"
+                required
+              />
+              <div class="flex items-center justify-between">
+                <!-- Remember me toggle -->
+                <label class="flex items-center">
+                  <div class="relative inline-flex items-center">
+                    <input
+                      type="checkbox"
+                      name="accept_terms"
+                      class="w-10 h-4 transition bg-gray-200 border-none rounded-full shadow-inner outline-none appearance-none toggle checked:bg-primary-light disabled:bg-gray-200 focus:outline-none"
+                    />
+                    <span
+                      class="absolute top-0 left-0 w-4 h-4 transition-all transform scale-150 bg-white rounded-full shadow-sm"
+                    ></span>
+                  </div>
+                  <span class="ml-3 text-sm font-normal text-gray-500 dark:text-gray-400">
+                    I accept the
+                    <a href="#" class="text-sm text-blue-600 hover:underline">Terms and Conditions</a>
+                  </span>
+                </label>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="w-full px-4 py-2 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+
+            <!-- Or -->
+            <div class="flex items-center justify-center space-x-2 flex-nowrap">
+              <span class="w-20 h-px bg-gray-300"></span>
+              <span>OR</span>
+              <span class="w-20 h-px bg-gray-300"></span>
+            </div>
+
+            <!-- Social login links -->
+            <!-- Brand icons src https://boxicons.com -->
+            <a
+              href="#"
+              class="flex items-center justify-center px-4 py-2 space-x-2 text-white transition-all duration-200 bg-black rounded-md hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 dark:focus:ring-offset-darker"
+            >
+              <svg 
+                    aria-hidden="true"
+                    class="w-6 h-6 text-white"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+                  <path 
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z">
+                  </path>
+                  </svg>
+              <span> Register using Google </span>
+            </a>
+
+            <!-- Login link -->
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Already have an account? <a href="/" class="text-blue-600 hover:underline">Login</a>
+            </div>
+          </div>
+        </main>
+      </div>
+      <!-- Toggle dark mode button -->
+      <div class="fixed bottom-5 left-5">
+        <button
+          aria-hidden="true"
+          @click="toggleTheme"
+          class="p-2 transition-colors duration-200 rounded-full shadow-md bg-primary hover:bg-primary-darker focus:outline-none focus:ring focus:ring-primary"
+        >
+          <svg
+            x-show="isDark"
+            class="w-8 h-8 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+            />
+          </svg>
+          <svg
+            x-show="!isDark"
+            class="w-8 h-8 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
