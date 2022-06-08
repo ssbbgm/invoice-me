@@ -8,7 +8,8 @@ User.hasMany(Client, {
 });
 
 Client.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 Client.hasMany(Invoice, {
@@ -17,7 +18,8 @@ Client.hasMany(Invoice, {
 });
 
 Invoice.belongsTo(Client, {
-    foreignKey: 'client_id'
+    foreignKey: 'client_id',
+    onDelete: 'CASCADE'
 });
 
 module.exports = {User, Client, Invoice};

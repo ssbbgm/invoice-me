@@ -11,11 +11,11 @@ Client.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_nane: {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        last_nane: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
