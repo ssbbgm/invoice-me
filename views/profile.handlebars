@@ -346,7 +346,7 @@
                     aria-label="User menu"
                   >
                     <a
-                      href="/dashboard/profile"
+                      href="/profile"
                       role="menuitem"
                       class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                     >
@@ -696,402 +696,222 @@
             </div>
 
             <!-- Content -->
-            <div class="mt-2">
-              <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
-                <!-- Value card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      Earnings
-                    </h6>
-                    <span class="text-xl font-semibold">$30,000</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +4.4%
-                    </span>
+<div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            {{!-- <div class="grid grid-cols-3 gap-6">
+              <div class="col-span-3 sm:col-span-2">
+                <label for="company-website" class="block text-sm font-medium text-gray-700"> Website </label>
+                <div class="mt-1 flex rounded-md shadow-sm">
+                  <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"> http:// </span>
+                  <input type="text" name="company-website" id="company-website" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="www.example.com">
+                </div>
+              </div>
+            </div> --}}
+
+            {{!-- <div>
+              <label for="about" class="block text-sm font-medium text-gray-700"> About </label>
+              <div class="mt-1">
+                <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
+              </div>
+              <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
+            </div> --}}
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700"> Photo </label>
+              <div class="mt-1 flex items-center">
+                <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                  <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </span>
+                <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</button>
+              </div>
+            </div>
+
+            {{!-- <div>
+              <label class="block text-sm font-medium text-gray-700"> Cover photo </label>
+              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                <div class="space-y-1 text-center">
+                  <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="flex text-sm text-gray-600">
+                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                      <span>Upload a file</span>
+                      <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                    </label>
+                    <p class="pl-1">or drag and drop</p>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </span>
+                  <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> --}}
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
+
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+        <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>Mexico</option>
+                </select>
+              </div>
+
+              <div class="col-span-6">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
+                <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
+
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Notifications</h3>
+        <p class="mt-1 text-sm text-gray-600">Decide which communications you'd like to receive and how.</p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <fieldset>
+              <legend class="sr-only">By Email</legend>
+              <div class="text-base font-medium text-gray-900" aria-hidden="true">By Email</div>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="comments" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="comments" class="font-medium text-gray-700">Comments</label>
+                    <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
                   </div>
                 </div>
-
-                <!-- Clients card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      Clients
-                    </h6>
-                    <span class="text-xl font-semibold">50,021</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +2.6%
-                    </span>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="candidates" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                    </span>
+                  <div class="ml-3 text-sm">
+                    <label for="candidates" class="font-medium text-gray-700">Candidates</label>
+                    <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
                   </div>
                 </div>
-
-                <!-- Inovices card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      Open Invoices
-                    </h6>
-                    <span class="text-xl font-semibold">45,021</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +3.1%
-                    </span>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="offers" name="offers" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Past Due Invoices-->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      Past Due Invoices
-                    </h6>
-                    <span class="text-xl font-semibold">20,516</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +3.1%
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
-                        />
-                      </svg>
-                    </span>
+                  <div class="ml-3 text-sm">
+                    <label for="offers" class="font-medium text-gray-700">Offers</label>
+                    <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
                   </div>
                 </div>
               </div>
-
-              <!-- Charts -->
-              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-1">
-                <!-- Bar chart card -->
-                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
-                    <div class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateBarChart(isOn)"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        ></div>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart"></canvas>
-                  </div>
+            </fieldset>
+            <fieldset>
+              <legend class="contents text-base font-medium text-gray-900">Push Notifications</legend>
+              <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-center">
+                  <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700"> Everything </label>
+                </div>
+                <div class="flex items-center">
+                  <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700"> Same as email </label>
+                </div>
+                <div class="flex items-center">
+                  <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700"> No push notifications </label>
                 </div>
               </div>
+            </fieldset>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-            <!-- Client List Page  -->
-          <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-1">
-            <div class="bg-white p-8 rounded-md w-full border-t dark:bg-darker dark:border-primary-darker">
-              <div class=" flex items-center justify-between pb-6">
-                <div>
-                  <h2 class="text-gray-600 font-semibold">Client List</h2>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex bg-gray-50 items-center p-2 rounded-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
-                    fill="currentColor">
-                      <path fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <input class="bg-gray-50 outline-none ml-1 block " type="text" name="" id="" placeholder="search...">
-                      </div>
-                    <div class="lg:ml-40 ml-10 space-x-8">
-                      <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New Client</button>
-                      <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Create Invoice</button>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden ">
-                      <table class="min-w-full leading-normal border-t dark:bg-darker dark:border-primary-darker">
-                        <thead class="border-t dark:bg-darker dark:border-primary-darker">
-                          <tr>
-                            <th
-                              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                              Name
-                            </th>
-                            <th
-                              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                              Email
-                            </th>
-                            <th
-                              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                              Phone Number 
-                            </th>
-                            <th
-                              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                              Status
-                            </th>
-                            <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            DELETE
-                            </th>
-                            <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            EDIT
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                  <img class="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                  <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                      Vera Carpenter
-                                    </p>
-                                  </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">veracarpenter@gmail.com</p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                (000) 000-0000
-                              </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                              <span class="relative">Active</span>
-                              </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Delete</button>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                  <img class="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                  <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                      Blake Bowman
-                                    </p>
-                                  </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">blakebowman@gmail.com</p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                (111) 111-1111
-                              </p>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden
-                                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                              <span class="relative">Active</span>
-                              </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Delete</button>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                  <img class="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                  <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                      Gina Moore
-                                    </p>
-                                  </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">ginamoore@gmail.com</p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                (222) 222-2222
-                              </p>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
-                                                    <span aria-hidden
-                                                        class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                              <span class="relative">Suspended</span>
-                              </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Delete</button>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                  <img class="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
-                                                    </div>
-                                  <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                      Stacey Kennedy
-                                    </p>
-                                  </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">staceykennedy@gmail.com</p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p class="text-gray-900 whitespace-no-wrap">
-                                (333) 333-3333
-                              </p>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
-                                                    <span aria-hidden
-                                                        class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                              <span class="relative">Suspended</span>
-                              </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Delete</button>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">Edit</button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <div
-                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                                        Showing 1 to 4 of 50 Entries
-                                    </span>
-                        <div class="inline-flex mt-2 xs:mt-0">
-                          <button
-                                            class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l">
-                                            Prev
-                                        </button>
-                          &nbsp; &nbsp;
-                          <button
-                                            class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-r">
-                                            Next
-                                        </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>         
           </main>
 
           <!-- Main footer -->
