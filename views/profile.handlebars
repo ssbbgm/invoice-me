@@ -199,21 +199,21 @@
                   <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                   <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                   <a
-                    href="auth/register.html"
+                    href="/register"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                   >
                     Register
                   </a>
                   <a
-                    href="auth/login.html"
+                    href="/login"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                   >
                     Login
                   </a>
                   <a
-                    href="auth/forgot-password.html"
+                    href="/forgot"
                     role="menuitem"
                     class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
                   >
@@ -771,7 +771,7 @@
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
         <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-        <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+        <p class="mt-1 text-sm text-gray-600">Use an address where you can receive business communication.</p>
       </div>
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
@@ -786,6 +786,11 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Business Name</label>
                 <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
@@ -804,7 +809,7 @@
               </div>
 
               <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Business Mailing Address</label>
                 <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
@@ -839,7 +844,7 @@
   </div>
 </div>
 
-<div class="mt-10 sm:mt-0">
+{{!-- <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
@@ -910,7 +915,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> --}}
 
           </main>
 
