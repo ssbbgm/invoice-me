@@ -1,12 +1,8 @@
-const {Model, Datatypes} = require('sequilize');
+const {Model, DataTypes} = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-    }
-}
+class User extends Model {}
 
 User.init(
     {
@@ -16,18 +12,27 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        last_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // firstName: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'login',
+        //         key: 'first_name',
+        //     },        
+        // },
+        // lastName: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'login',
+        //         key: 'last_name',
+        //     }, 
+        // },
+        // email: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'login',
+        //         key: 'email',
+        //     }, 
+        // },
         phone_number: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -52,13 +57,13 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [8],
-            }
-        },
+        // login_password: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'login',
+        //         key: 'password',
+        //     }, 
+        // },
     },
     {
         hooks: {
@@ -79,4 +84,4 @@ User.init(
     }
 );
 
-model.exports = User;
+module.exports = User;

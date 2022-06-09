@@ -1,6 +1,12 @@
 const User = require('./User');
 const Client = require('./Client');
 const Invoice = require('./Invoice');
+const Login = require('./Login');
+
+Login.hasOne(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 
 User.hasMany(Client, {
     foreignKey: 'user_id',
@@ -22,4 +28,4 @@ Invoice.belongsTo(Client, {
     onDelete: 'CASCADE'
 });
 
-module.exports = {User, Client, Invoice};
+module.exports = {User, Client, Invoice, Login};

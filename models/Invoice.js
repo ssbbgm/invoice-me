@@ -1,4 +1,4 @@
-const {Model, Datatypes} = require('sequilize');
+const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Invoice extends Model {}
@@ -12,7 +12,7 @@ Invoice.init(
             autoIncrement: true,
         },
         due_date: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATEONLY,
             allowNull: false,
         },
         payment: {
@@ -40,4 +40,4 @@ Invoice.init(
     }
 );
 
-model.exports = Invoice;
+module.exports = Invoice;

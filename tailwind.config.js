@@ -3,8 +3,7 @@ module.exports = {
     // "./public/src/*.html",
     "./views/*.handlebars",
     "./views/**/*.handlebars",
-    "*.{html,js}"
-  
+    "*.{html,js}",
   ],
   theme: {
     colors: {
@@ -13,6 +12,6 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/forms')
+    require('@tailwindcss/forms'),
   ],
 }
