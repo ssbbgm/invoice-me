@@ -35,27 +35,27 @@ User.init(
         // },
         phone_number: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         business: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         address: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         zip: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         // login_password: {
         //     type: DataTypes.STRING,
