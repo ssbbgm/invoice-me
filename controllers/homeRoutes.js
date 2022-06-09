@@ -14,6 +14,38 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.post('/', async (req, res) => {
+    try {
+      const userData = await Login.findOne({ where: { email: req.body.email } });
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+});
+
 // get dashboard if logged in
 router.get('/dashboard', async (req, res) => {
     try {
@@ -55,36 +87,7 @@ router.post('/register', async (req, res) => {
     console.log(result); })  
     } catch(err){
       res.status(400).json(err);
-    }
-    // console.log(req.body)
-    // res.json(req.body);
-    // const login = new Login();
-    // login.first_name = req.body.first_name;
-    // login.last_name = req.body.last_name;
-    // login.email = req.body.email;
-    // login.password = req.body.password;
-    // login.confirmedPassword = req.body.pw_confirm;
-
-    // login.save().then(result => {
-    // console.log(result); })  
-
-    // try {
-    //   const userData = await Login.create(req.body);
-    
-    //   req.session.save(() => {
-    //     // req.session.first_name = userData.first_name;
-    //     // req.session.last_name = userData.last_name;
-    //     req.session.email = userData.email;
-    //     req.session.confirmedPassword = userData.confirmedPassword;
-  
-    //     res.status(200).json(userData);
-
-    //   });
-    // } catch (err) {
-    //   res.status(400).json(err);
-    // }
-
-       
+    }     
 });
 
   
