@@ -33,7 +33,6 @@ Login.init(
             allowNull: false,
             validate: {
               len: [8],
-              msg: 'Password should be no less than 8 characters'
             }
         },
         confirmedPassword: {
@@ -46,11 +45,6 @@ Login.init(
                     this.setDataValue('confirmedPassword', hashedPassword)
                 }
             },
-            validate: {
-                notNull: {
-                    msg: 'Both passwords must match'
-                }
-            }
         }
     },
     {
