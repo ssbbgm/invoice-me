@@ -51,7 +51,14 @@ Login.init(
                     msg: 'Both passwords must match'
                 }
             }
-        }
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
+        },
     },
     {
         hooks: {
