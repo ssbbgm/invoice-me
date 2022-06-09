@@ -41,6 +41,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
+    try {
     console.log(req.body)
     res.json(req.body);
     const login = new Login();
@@ -52,6 +53,20 @@ router.post('/register', async (req, res) => {
 
     login.save().then(result => {
     console.log(result); })  
+    } catch(err){
+      res.status(400).json(err);
+    }
+    // console.log(req.body)
+    // res.json(req.body);
+    // const login = new Login();
+    // login.first_name = req.body.first_name;
+    // login.last_name = req.body.last_name;
+    // login.email = req.body.email;
+    // login.password = req.body.password;
+    // login.confirmedPassword = req.body.pw_confirm;
+
+    // login.save().then(result => {
+    // console.log(result); })  
 
     // try {
     //   const userData = await Login.create(req.body);
