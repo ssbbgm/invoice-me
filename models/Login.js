@@ -10,12 +10,12 @@ class Login extends Model {
 
 Login.init(
     {
-        // id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     primaryKey: true,
-        //     autoIncrement: true,
-        // },      
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },      
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,29 +29,28 @@ Login.init(
             allowNull: false,
         },
         password: {
-            type: DataTypes.VIRTUAL,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [8],
-              msg: 'Password should be no less than 8 characters'
             }
         },
-        confirmedPassword: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            primaryKey: true,
-            set(val) {
-                if(val === this.password){
-                    const hashedPassword = bcrypt.hashSync(val, 10);
-                    this.setDataValue('confirmedPassword', hashedPassword)
-                }
-            },
-            validate: {
-                notNull: {
-                    msg: 'Both passwords must match'
-                }
-            }
-        },
+        // confirmedPassword: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     primaryKey: true,
+        //     set(val) {
+        //         if(val === this.password){
+        //             const hashedPassword = bcrypt.hashSync(val, 10);
+        //             this.setDataValue('confirmedPassword', hashedPassword)
+        //         }
+        //     },
+        //     validate: {
+        //         notNull: {
+        //             msg: 'Both passwords must match'
+        //         }
+        //     }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

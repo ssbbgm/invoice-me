@@ -1,12 +1,12 @@
 //DOM Elements
 const registerForm = document.getElementById('register');
 const registerButton = document.getElementById('register-submit');
-const passwordModal = document.getElementById('popup-modal');
 
 
 // registerButton.addEventListener('click', () => {
 //     console.log('hey!')
 // })
+
 
 
 const loginFormHandler = async (event) => {
@@ -19,25 +19,22 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password').value.trim();
     const pw_confirm = document.querySelector('#password_confirmation').value.trim();
 
-  
-    if (password === pw_confirm) {
+
+
       // Send a POST request to the API endpoint
-      const response = await fetch('/dashboard/register', {
+    const response = await fetch('/register', {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ first_name, last_name, email, password, pw_confirm }),
         headers: { 'Content-Type': 'application/json' },
-      });
+    });
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/profile');
+        document.location.replace('/dashboard/profile');
       } else {
         console.log(response.statusText);
       }
-    } else {
-      alert('Passwords must match. Please try again.');
-    }
-
+    
 };
 
 registerForm.addEventListener('submit', loginFormHandler)
