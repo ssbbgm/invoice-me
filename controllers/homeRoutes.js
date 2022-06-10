@@ -55,6 +55,18 @@ router.get('/dashboard', async (req, res) => {
     }
 });
 
+router.get('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+      res.redirect('/');
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+
 router.get('/forgot', async (req, res) => {
     try {
       res.render('forgot', { body: 'test' })
@@ -70,6 +82,22 @@ router.get('/register', (req, res) => {
     } catch (err) {
       res.status(500).json(err)
     }
+});
+
+router.get('/client-list', async (req, res) => {
+  try {
+    res.render('client-list', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/generate-invoice', async (req, res) => {
+  try {
+    res.render('generate-invoice', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 router.post('/register', async (req, res) => {
