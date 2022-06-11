@@ -41,6 +41,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Wildcard route to direct users to 404 or 500 page
+
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/pages/404.html'))
+)
+
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/pages/505.html'))
+)
+
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 }).catch(err => console.log(err));
