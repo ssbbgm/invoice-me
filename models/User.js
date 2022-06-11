@@ -44,6 +44,17 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+              len: [8],
+            }
+        },
     },
     {
         hooks: {
