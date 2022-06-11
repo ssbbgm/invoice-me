@@ -12,27 +12,14 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        // firstName: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'login',
-        //         key: 'first_name',
-        //     },        
-        // },
-        // lastName: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'login',
-        //         key: 'last_name',
-        //     }, 
-        // },
-        // email: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'login',
-        //         key: 'email',
-        //     }, 
-        // },
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false,   
+        },
         phone_number: {
             type: DataTypes.INTEGER,
             allowNull: true,
@@ -57,13 +44,6 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        // login_password: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'login',
-        //         key: 'password',
-        //     }, 
-        // },
     },
     {
         hooks: {
