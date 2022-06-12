@@ -1,6 +1,9 @@
 const pdfArea = document.getElementById('display-pdf');
 const createBtn = document.getElementById('create-invoice');
 
+pdfArea.style.display = 'none';
+
 createBtn.addEventListener('click', () => {
-    console.log('It works');
+    pdfArea.style.display = 'inherit';
 });
+

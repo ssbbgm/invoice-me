@@ -106,7 +106,7 @@ router.get('/generate-invoice', (req, res) => {
 
     pdfkit.end()
     const body = "file.pdf"
-    res.render("generate-invoice", { body: body })
+    res.render("generate-invoice", { body: body})
   } catch (err) {
     console.log(err)
     return res.status(500).json(err)
