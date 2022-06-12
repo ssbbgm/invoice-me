@@ -94,17 +94,35 @@ router.get('/client-list', async (req, res) => {
   }
 });
 
+//GENERATE INVOICE ROUTE
 router.get('/generate-invoice', (req, res) => {
   try {
-    var pdfkit = new PDFDocument()
-    var someData = {
+    const doc = new PDFDocument()
+    let someData = {
       name: "test abc",
       age: "25",
     }
-    pdfkit.pipe(fs.createWriteStream("./public/file.pdf")) // write to PDF
-    pdfkit.text(JSON.stringify(someData, null, 2))
+    doc.pipe(fs.createWriteStream("./public/file.pdf")) // write to PDF
 
-    pdfkit.end()
+    doc
+    .image("./public/images/logo.png", 50, 45, { width: 50 })
+    .fillColor("#444444")
+    .fontSize(20)
+    .text("ACME Inc.", 110, 57)
+    .fontSize(10)
+    .text("ACME Inc.", 200, 50, { align: "right" })
+    .text("123 Main Street", 200, 65, { align: "right" })
+    .text("New York, NY, 10025", 200, 80, { align: "right" })
+    .font('Courier')
+    .fontSize(25)
+    .fillColor("#444444")
+    .fontSize(20)
+    .text("Invoice", 50, 160);
+    
+    // .text('Some text with an embedded font!', 100, 100);
+    // .text(JSON.stringify(someData, null, 2))
+
+    doc.end()
     const body = "file.pdf"
     res.render("generate-invoice", { body: body})
   } catch (err) {
