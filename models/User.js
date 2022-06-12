@@ -21,7 +21,7 @@ User.init(
             allowNull: false,   
         },
         phone_number: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: true,
         },
         business: {
