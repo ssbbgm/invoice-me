@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
-const { Client, Invoice, User, Login } = require('../models');
+const { Client, Invoice, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
 
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-      const userData = await Login.findOne({ where: { email: req.body.email } });
+      const userData = await User.findOne({ where: { email: req.body.email } });
   
       if (!userData) {
         res
@@ -104,14 +104,14 @@ router.post('/register', async (req, res) => {
     try {
     console.log(req.body)
     res.json(req.body);
-    const login = new Login();
-    login.first_name = req.body.first_name;
-    login.last_name = req.body.last_name;
-    login.email = req.body.email;
-    login.password = req.body.password;
-    login.confirmedPassword = req.body.pw_confirm;
+    const user = new User();
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    //user.confirmedPassword = req.body.pw_confirm;
 
-    login.save().then(result => {
+    user.save().then(result => {
     console.log(result); })  
     } catch(err){
       res.status(400).json(err);

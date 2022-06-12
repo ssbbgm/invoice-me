@@ -3,15 +3,15 @@ const Client = require('./Client');
 const Invoice = require('./Invoice');
 const Login = require('./Login');
 
-//One-to-one relationship Pk:User.ID Fk: user_id
-User.hasOne(Login, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
+// //One-to-one relationship Pk:User.ID Fk: user_id
+// User.hasOne(Login, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+// });
 
-Login.belongsTo(User,{
-    foreignKey: 'user_id',
-});
+// Login.belongsTo(User,{
+//     foreignKey: 'user_id',
+// });
 
 //one-to-many relationship Pk: User.ID Fk: user_id
 User.hasMany(Client, {

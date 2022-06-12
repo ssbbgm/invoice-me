@@ -13,8 +13,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
-    const first_name = document.querySelector('#first_name').value.trim();
-    const last_name = document.querySelector('#last_name').value.trim();
+    const firstName = document.querySelector('#first_name').value.trim();
+    const lastName = document.querySelector('#last_name').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
     const pw_confirm = document.querySelector('#password_confirmation').value.trim();
@@ -24,7 +24,7 @@ const loginFormHandler = async (event) => {
       // Send a POST request to the API endpoint
     const response = await fetch('/register', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, password, pw_confirm }),
+        body: JSON.stringify({ firstName, lastName, email, password }),
         headers: { 'Content-Type': 'application/json' },
     });
   
