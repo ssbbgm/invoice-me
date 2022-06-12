@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
 const { Client, Invoice, User } = require('../models');
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
 // const withAuth = require('../utils/auth');
 
 
@@ -92,13 +94,24 @@ router.get('/client-list', async (req, res) => {
   }
 });
 
-router.get('/generate-invoice', async (req, res) => {
+router.get('/generate-invoice', (req, res) => {
   try {
-    res.render('generate-invoice', { body: 'test' })
+    var pdfkit = new PDFDocument()
+    var someData = {
+      name: "test abc",
+      age: "25",
+    }
+    pdfkit.pipe(fs.createWriteStream("./public/file.pdf")) // write to PDF
+    pdfkit.text(JSON.stringify(someData, null, 2))
+
+    pdfkit.end()
+    const body = "file.pdf"
+    res.render("generate-invoice", { body: body })
   } catch (err) {
-    res.status(500).json(err)
+    console.log(err)
+    return res.status(500).json(err)
   }
-});
+})
 
 router.post('/register', async (req, res) => {
     try {
