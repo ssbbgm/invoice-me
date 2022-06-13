@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
-const { Client, Invoice, User } = require('../models');
+// const { Client, Invoice, User } = require('../models');
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
-// const withAuth = require('../utils/auth');
+// const generateHelper = require('../utils/generateHelper');
 
 
 
@@ -108,16 +108,24 @@ router.get('/generate-invoice', (req, res) => {
     .image("./public/images/logo.png", 50, 45, { width: 50 })
     .fillColor("#444444")
     .fontSize(20)
-    .text("ACME Inc.", 110, 57)
+    .text("Test Inc", 110, 57)
     .fontSize(10)
-    .text("ACME Inc.", 200, 50, { align: "right" })
+    .text("Test Inc.", 200, 50, { align: "right" })
     .text("123 Main Street", 200, 65, { align: "right" })
     .text("New York, NY, 10025", 200, 80, { align: "right" })
-    .font('Courier')
-    .fontSize(25)
+    .moveDown()
     .fillColor("#444444")
     .fontSize(20)
-    .text("Invoice", 50, 160);
+    .text("Invoice", 50, 160)
+    .fontSize(10)
+    .text("Invoice Number: 1234", 50, 200,)
+		.text(`Invoice Date: 01/01/2022`, 50, 215)
+    .moveDown()
+		.text("ACME Inc", 300, 200)
+		.text("123 Main Street", 300, 215)
+		.text("New York, NY, 10025",300,130)
+		.moveDown();
+
     
     // .text('Some text with an embedded font!', 100, 100);
     // .text(JSON.stringify(someData, null, 2))
