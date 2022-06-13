@@ -120,11 +120,30 @@ router.get('/generate-invoice', (req, res) => {
     .fontSize(10)
     .text("Invoice Number: 1234", 50, 200,)
 		.text(`Invoice Date: 01/01/2022`, 50, 215)
+    .text(`Balance Due: $1,000`, 50, 230)
     .moveDown()
-		.text("ACME Inc", 300, 200)
-		.text("123 Main Street", 300, 215)
-		.text("New York, NY, 10025",300,130)
-		.moveDown();
+		.text("Test Inc", 300, 200, { align: "right"})
+		.text("123 Main Street", 300, 215, { align: "right"})
+		.text("New York, NY, 10025",300, 230, { align: "right"})
+		.moveDown()
+    .fontSize(10)
+    .font("Helvetica-Bold")
+    .text("Item", 50, 275)
+    .text("Description", 225, 275)
+    .text("Total Due", 300, 275, { align: "right" })
+    .moveDown()
+    .fontSize(10)
+    .font("Helvetica")
+    .text("001", 50, 300)
+    .text("Web Development Project", 225, 300)
+    .text("$1,000", 300, 300, { align: "right" })
+    .fontSize(10)
+    .text(
+      "Payment is due within 15 days. Thank you for your business.",
+      50,
+      400,
+      { align: "center", width: 500 }
+    );
 
     
     // .text('Some text with an embedded font!', 100, 100);
