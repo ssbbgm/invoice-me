@@ -8,9 +8,6 @@ const fs = require("fs");
 const nodemailer = require('nodemailer');
 
 
-
-
-
 //get login main page
 router.get('/', async (req, res) => {
     try {
