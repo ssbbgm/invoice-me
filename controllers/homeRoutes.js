@@ -1,9 +1,13 @@
+require('dotenv').config();
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
 // const { Client, Invoice, User } = require('../models');
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 // const generateHelper = require('../utils/generateHelper');
+const nodemailer = require('nodemailer');
+
+
 
 
 
@@ -98,10 +102,8 @@ router.get('/client-list', async (req, res) => {
 router.get('/generate-invoice', (req, res) => {
   try {
     const doc = new PDFDocument()
-    let someData = {
-      name: "test abc",
-      age: "25",
-    }
+    const buffers = [];
+
     doc.pipe(fs.createWriteStream("./public/file.pdf")) // write to PDF
 
     doc
@@ -143,14 +145,48 @@ router.get('/generate-invoice', (req, res) => {
       50,
       400,
       { align: "center", width: 500 }
-    );
-
-    
+    )
     // .text('Some text with an embedded font!', 100, 100);
     // .text(JSON.stringify(someData, null, 2))
+    doc.on('data', buffers.push.bind(buffers));
+    doc.end();
+    doc.on('end', () => {
+      let pdfData = Buffer.concat(buffers);
 
-    doc.end()
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.MAIL_USERNAME,
+          pass: process.env.MAIL_PASSWORD,
+          clientId: process.env.OAUTH_CLIENTID,
+          clientSecret: process.env.OAUTH_CLIENT_SECRET,
+          refreshToken: process.env.OAUTH_REFRESH_TOKEN
+        }
+      });  
+
+      const mailOptions = {
+        "from": "invoiceme157@gmail.com",
+        "to": "invoiceme157@gmail.com",
+        "subject": "Invoice Attached",
+        "text": "Please see the attached email for your reference! Have a great day!",
+        "attachments": [{
+          filename: 'file.pdf',
+          content: pdfData,
+        }]
+      }
+
+      return transporter.sendMail(mailOptions, function(err, data){
+        if (err) {
+          console.log("Error " + err);
+        } else {
+          console.log("Email sent successfully");
+        }
+      })
+    });
+    
     const body = "file.pdf"
+
     res.render("generate-invoice", { body: body})
   } catch (err) {
     console.log(err)
