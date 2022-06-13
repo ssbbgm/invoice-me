@@ -1,7 +1,7 @@
 require('dotenv').config();
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
-// const { Client, Invoice, User } = require('../models');
+const { Client, Invoice, User, Login } = require('../models');
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 // const generateHelper = require('../utils/generateHelper');
@@ -15,20 +15,29 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json(err)
     }
-  });
+});
 
-router.post('/', async (req, res) => {
+router.get('/login', async (req, res) => {
+  try {
+    res.render('dashboard', { body: 'test' })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+//login post request
+router.post('/login', async (req, res) => {
     try {
-      const userData = await User.findOne({ where: { email: req.body.email } });
+      const loginData = await Login.findOne({ where: { email: req.body.email } });
   
-      if (!userData) {
+      if (!loginData) {
         res
           .status(400)
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
   
-      const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = await loginData.checkPassword(req.body.password);
   
       if (!validPassword) {
         res
@@ -38,12 +47,12 @@ router.post('/', async (req, res) => {
       }
   
       req.session.save(() => {
-        req.session.user_id = userData.id;
+        req.session.id = loginData.id;
         req.session.logged_in = true;
         
-        res.json({ user: userData, message: 'You are now logged in!' });
+        res.json({ user: loginData, message: 'You are now logged in!' });
       });
-  
+      
     } catch (err) {
       res.status(400).json(err);
     }
@@ -173,13 +182,13 @@ router.get('/generate-invoice', (req, res) => {
         }]
       }
 
-      return transporter.sendMail(mailOptions, function(err, data){
+        return transporter.sendMail(mailOptions, function(err, data){
         if (err) {
           console.log("Error " + err);
         } else {
           console.log("Email sent successfully");
         }
-      })
+        })
     });
     
     const body = "file.pdf"
