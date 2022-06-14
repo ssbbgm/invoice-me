@@ -39,6 +39,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Wildcard route to direct users to 404 page
+app.get('*', (req, res) =>
+  // res.sendFile(path.join(__dirname, '/public/pages/404.html'))
+  res.redirect("/pages/404.html")
+);
+// Wildcard route to direct users to 505 page
+app.get('*', (req, res) =>
+  // res.sendFile(path.join(__dirname, '/public/pages/505.html'))
+  res.redirect("/pages/505.html")
+);
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
