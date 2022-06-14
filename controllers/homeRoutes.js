@@ -17,16 +17,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/login', async (req, res) => {
-  try {
-    res.render('dashboard', { body: 'test' })
-  } catch (err) {
-    res.status(500).json(err)
-  }
-});
 
 //login post request
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const loginData = await Login.findOne({ where: { email: req.body.email } });
   
