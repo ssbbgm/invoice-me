@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "first_name": "Molly",
+        "last_name": "Gove",
+        "email": "test4@gmail.com",
+        "phone_number": "4444444444",
+        "user_id": "1"
+    },
+    {
+        "id": "2",
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "test5@gmail.com",
+        "phone_number": "5555555555",
+        "user_id": "2"
+    },
+    {
+        "id": "3",
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "test6@gmail.com",
+        "phone_number": "6666666666",
+        "user_id": "3"
+    }
+]

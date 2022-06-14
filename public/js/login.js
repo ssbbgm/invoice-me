@@ -24,5 +24,5 @@ const loginFormHandler = async (event) => {
     }
 };
 
-login.addEventListener('click', loginFormHandler)
+login.addEventListener('submit', loginFormHandler)
   
