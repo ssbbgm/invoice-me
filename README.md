@@ -1,7 +1,58 @@
 # Invoice Me
 
+## License
+   [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+   Please click on the badge to view license info.
+
+---
+
+## Description
 Invoice Me is an application that will allow the user to send payment reminders and invoices to their clients.
 
+---
+
+## Table of Contents
+
+- [License](#license)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Visuals](#visuals)
+- [Tests](#tests)
+- [User Story](#user-story)
+- [Status](#status)
+- [Technologies Used](#technologies-used)
+- [Creators](#creators)
+
+---
+
+## Installation
+In order to view this project, please visit the deployed link under the Usage section below.
+
+---
+
+## Usage
+
+Please use Heroku link to view deployed app and Github to view the code.
+
+Deployed Link: https://invoicemeteam.herokuapp.com
+
+GitHub Repo: https://github.com/ssbbgm/invoice-me
+
+---
+
+## Visuals
+
+![This is a screenshot/demo of the project.](./public/images/invoiceme.png)
+
+---
+
+## Tests
+
+None.
+
+---
 
 ## User Story
 
@@ -41,15 +92,6 @@ While certain functions of the app are currently in the testing phase, the follo
 * User will be able to send payment requests to their clients
 * The user's clients will then have the opportunity to send payments through a link in the invoice
 * User will be able to send payment/overdue payment notices to their clients.
-
----
-
-## Usage
-
-Please use Heroku link to view deployed app and Github to view the code.
-
-* Heroku [Link] (https://invoicemeteam.herokuapp.com )
-* Github [Link] (https://github.com/ssbbgm/invoice-me )
 
 ---
 
