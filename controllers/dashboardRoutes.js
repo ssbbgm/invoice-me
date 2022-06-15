@@ -4,6 +4,7 @@ const router = require('express').Router();
 
 router.get('/profile', async (req, res) => {
     try {
+      console.log("Getting profile...");
       res.render('profile', { body: 'test' })
     } catch (err) {
       res.status(500).json(err)

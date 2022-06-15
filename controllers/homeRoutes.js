@@ -17,38 +17,13 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-//login post request
-router.post('/', async (req, res) => {
-    try {
-      const loginData = await Login.findOne({ where: { email: req.body.email } });
-  
-      if (!loginData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
-  
-      const validPassword = await loginData.checkPassword(req.body.password);
-  
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
-  
-      req.session.save(() => {
-        req.session.id = loginData.id;
-        req.session.logged_in = true;
-        
-        res.json({ user: loginData, message: 'You are now logged in!' });
-      });
-      
-    } catch (err) {
-      res.status(400).json(err);
-    }
+router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
+    }  
+    res.render('login');
 });
 
 // get dashboard if logged in
