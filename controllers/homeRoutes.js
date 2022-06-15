@@ -57,7 +57,7 @@ router.get('/forgot', async (req, res) => {
     } catch (err) {
       res.status(500).json(err)
     }
-  });
+});
   
 router.get('/register', (req, res) => {
     try {
