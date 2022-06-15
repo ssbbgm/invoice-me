@@ -1,5 +1,3 @@
-// All javascript code in this project for now is just for demo DON'T RELY ON IT
-
 const random = (max = 100) => {
     return Math.round(Math.random() * max) + 20
   }
