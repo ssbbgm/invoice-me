@@ -16,7 +16,7 @@ Invoice.init(
             allowNull: false,
         },
         payment: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         description: {

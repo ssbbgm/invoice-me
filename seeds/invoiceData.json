@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "due_date": "2022-01-01",
+        "payment": "1000",
+        "description": "Web Development project",
+        "client_id": "1"
+    },
+    {
+        "id": "2",
+        "due_date": "2022-02-01",
+        "payment": "1100",
+        "description": "Web Development project",
+        "client_id": "2"
+    },
+    {
+        "id": "3",
+        "due_date": "2022-03-01",
+        "payment": "1200",
+        "description": "Web Development project",
+        "client_id": "3"
+    }
+]

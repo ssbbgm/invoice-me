@@ -1,8 +1,11 @@
+require('dotenv').config();
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
-const { Client, Invoice, User } = require('../models');
-// const withAuth = require('../utils/auth');
-
+const { Client, Invoice, User, Login } = require('../models');
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
+// const generateHelper = require('../utils/generateHelper');
+const nodemailer = require('nodemailer');
 
 
 //get login main page
@@ -12,17 +15,16 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json(err)
     }
-  });
+});
 
-  router.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
       res.redirect('/profile');
       return;
-    }
-  
+    }  
     res.render('login');
-  });
+});
 
 // get dashboard if logged in
 router.get('/dashboard', async (req, res) => {
@@ -70,13 +72,101 @@ router.get('/client-list', async (req, res) => {
   }
 });
 
-router.get('/generate-invoice', async (req, res) => {
+//GENERATE INVOICE ROUTE
+router.get('/generate-invoice', (req, res) => {
   try {
-    res.render('generate-invoice', { body: 'test' })
+    const doc = new PDFDocument()
+    const buffers = [];
+
+    doc.pipe(fs.createWriteStream("./public/file.pdf")) // write to PDF
+
+    doc
+    .image("./public/images/logo.png", 50, 45, { width: 50 })
+    .fillColor("#444444")
+    .fontSize(20)
+    .text("Test Inc", 110, 57)
+    .fontSize(10)
+    .text("Test Inc.", 200, 50, { align: "right" })
+    .text("123 Main Street", 200, 65, { align: "right" })
+    .text("New York, NY, 10025", 200, 80, { align: "right" })
+    .moveDown()
+    .fillColor("#444444")
+    .fontSize(20)
+    .text("Invoice", 50, 160)
+    .fontSize(10)
+    .text("Invoice Number: 1234", 50, 200,)
+		.text(`Invoice Date: 01/01/2022`, 50, 215)
+    .text(`Balance Due: $1,000`, 50, 230)
+    .moveDown()
+		.text("Test Inc", 300, 200, { align: "right"})
+		.text("123 Main Street", 300, 215, { align: "right"})
+		.text("New York, NY, 10025",300, 230, { align: "right"})
+		.moveDown()
+    .fontSize(10)
+    .font("Helvetica-Bold")
+    .text("Item", 50, 275)
+    .text("Description", 225, 275)
+    .text("Total Due", 300, 275, { align: "right" })
+    .moveDown()
+    .fontSize(10)
+    .font("Helvetica")
+    .text("001", 50, 300)
+    .text("Web Development Project", 225, 300)
+    .text("$1,000", 300, 300, { align: "right" })
+    .fontSize(10)
+    .text(
+      "Payment is due within 15 days. Thank you for your business.",
+      50,
+      400,
+      { align: "center", width: 500 }
+    )
+    // .text('Some text with an embedded font!', 100, 100);
+    // .text(JSON.stringify(someData, null, 2))
+    doc.on('data', buffers.push.bind(buffers));
+    doc.end();
+    doc.on('end', () => {
+      let pdfData = Buffer.concat(buffers);
+
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.MAIL_USERNAME,
+          pass: process.env.MAIL_PASSWORD,
+          clientId: process.env.OAUTH_CLIENTID,
+          clientSecret: process.env.OAUTH_CLIENT_SECRET,
+          refreshToken: process.env.OAUTH_REFRESH_TOKEN
+        }
+      });  
+
+      const mailOptions = {
+        "from": "invoiceme157@gmail.com",
+        "to": "invoiceme157@gmail.com",
+        "subject": "Invoice Attached",
+        "text": "Please see the attached email for your reference! Have a great day!",
+        "attachments": [{
+          filename: 'file.pdf',
+          content: pdfData,
+        }]
+      }
+
+        return transporter.sendMail(mailOptions, function(err, data){
+        if (err) {
+          console.log("Error " + err);
+        } else {
+          console.log("Email sent successfully");
+        }
+        })
+    });
+    
+    const body = "file.pdf"
+
+    res.render("generate-invoice", { body: body})
   } catch (err) {
-    res.status(500).json(err)
+    console.log(err)
+    return res.status(500).json(err)
   }
-});
+})
 
 router.post('/register', async (req, res) => {
     try {
