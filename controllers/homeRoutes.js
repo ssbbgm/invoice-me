@@ -2,7 +2,7 @@ require('dotenv').config();
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
 const { Client, Invoice, User, Login } = require('../models');
-const PDFDocument = require("pdfkit");
+const PDFDocument = require('pdfkit');
 const fs = require("fs");
 // const generateHelper = require('../utils/generateHelper');
 const nodemailer = require('nodemailer');
@@ -11,16 +11,20 @@ const nodemailer = require('nodemailer');
 //get login main page
 router.get('/', async (req, res) => {
     try {
+      if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+      }
       res.render('login', { body: 'test' })
     } catch (err) {
-      res.status(500).json(err)
+      res.status(500).json(err);
     }
 });
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/profile');
+      res.redirect('/dashboard');
       return;
     }  
     res.render('login');
